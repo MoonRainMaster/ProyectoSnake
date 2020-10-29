@@ -1,0 +1,2 @@
+D:\Trabajos\prueba de SFML\x64\Debug\prueba de SFML.exe
+D:\Trabajos\prueba de SFML\x64\Debug\prueba de SFML.pdb
