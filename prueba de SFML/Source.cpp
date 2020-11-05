@@ -20,17 +20,15 @@ int main()
     Event appEvent;
     
     Texture squaret, refresht, backgroundt;
-    squaret.loadFromFile("square.png");
-    refresht.loadFromFile("refresh.png");
+    squaret.loadFromFile("cabezaS.png");
+    refresht.loadFromFile("manzana.png");
     backgroundt.loadFromFile("background.png");
 
-    Sprite orange(squaret), refresh(refresht), red(squaret), fondo(backgroundt);
+    Sprite orange(squaret), refresh(refresht), red(refresht), fondo(backgroundt);
     orange.setPosition(0, 0);
-    orange.setColor(Color(255, 120, 0));
-    orange.setScale(0.3f, 0.3f);
+    orange.setScale(0.4f, 0.4f);
     red.setPosition(1000, 0);
-    red.setColor(Color(255,0, 36));
-    red.setScale(0.3f, 0.3f);
+    red.setScale(0.1f, 0.1f);
 
     srand(time(NULL));
     randomx = 1 + rand() % (450);
