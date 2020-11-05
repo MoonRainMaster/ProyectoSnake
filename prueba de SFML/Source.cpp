@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <Windows.h>
+#include <SFML/Audio.hpp>
 
 using namespace sf;
 
@@ -16,35 +17,66 @@ int main()
 {
    
 
-    RenderWindow appWindow(sf::VideoMode(800, 800), "SNAKE");
+    RenderWindow appWindow(sf::VideoMode(700, 700), "SNAKE");
     Event appEvent;
     
-    Texture squaret, refresht, backgroundt;
+    Texture squaret, refresht, backgroundt,botont;
     squaret.loadFromFile("cabezaS.png");
-    refresht.loadFromFile("manzana.png");
+    refresht.loadFromFile("manzana2.png");
     backgroundt.loadFromFile("background.png");
+    botont.loadFromFile("boton1.png");
 
-    Sprite orange(squaret), refresh(refresht), red(refresht), fondo(backgroundt);
+    Sprite orange(squaret), refresh(refresht), red(refresht), fondo(backgroundt),r(botont);
     orange.setPosition(0, 0);
     orange.setScale(0.4f, 0.4f);
     red.setPosition(1000, 0);
-    red.setScale(0.1f, 0.1f);
+    red.setScale(0.2f, 0.2f);
+    r.setScale(0.2f, 0.2f);
+
+    
+    
 
     srand(time(NULL));
-    randomx = 1 + rand() % (450);
-    randomy = 1 + rand() % (450);
+    randomx = 1 + rand() % (550);
+    randomy = 1 + rand() % (550);
     for (int i = 0; i < 9; i++) {
-        if (randomx <= (i + 1)*50 && randomx > i*50) randomx= (i + 1) * 50;
-        if (randomy <= (i + 1) * 50 && randomy > i * 50) randomy = (i + 1) * 50;
+        if (randomx <= (i + 1)* 100 && randomx > i* 100) randomx= (i + 1) * 100;
+        if (randomy <= (i + 1)* 100 && randomy > i* 100) randomy = (i + 1) * 100;
     }
 
     while (appWindow.isOpen()) {
-        
+        Vector2i pos = Mouse::getPosition(appWindow);
         while (appWindow.pollEvent(appEvent)) {
             if (appEvent.type == Event::Closed) {
                 appWindow.close();
             }
-            
+            if (appEvent.type == Event::MouseButtonReleased) {
+                if (appEvent.key.code == Mouse::Left) {
+                    if (r.getGlobalBounds().contains(pos.x, pos.y)) {
+                        if (game == 2) {
+                            game = 1;
+                            r.setPosition(1000, 0);
+                            size = 1;
+                            p[0].x = 0;
+                            p[0].y = 0;
+                            dir = 0;
+                            speed = 700;
+                            good = true;
+                            while (good) {
+                                randomx = 1 + rand() % (550);
+                                randomy = 1 + rand() % (550);
+                                for (int i = 0; i < 9; i++) {
+                                    if (randomx <= (i + 1) * 100 && randomx > i * 100) randomx = (i + 1) * 100;
+                                    if (randomy <= (i + 1) * 100 && randomy > i * 100) randomy = (i + 1) * 100;
+                                }
+                                for (int i = 0; i < size; i++) {
+                                    if (randomx != p[i].x || randomy != p[i].y) good = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             if (appEvent.type == Event::KeyPressed) {
                 if (game == 1) {
                     if (appEvent.key.code == Keyboard::Right && dir!= 1) dir = 0;
@@ -69,16 +101,20 @@ int main()
             if (dir == 2)p[0].y += 50;
             if (dir == 3)p[0].y -= 50;
 
+            if (p[0].x == 700 || p[0].x == -50 || p[0].y == 700 || p[0].y == -50) game = 2;
+            for (int i = 1; i < size; i++) {
+                if(p[0].x==p[i].x && p[0].y==p[i].y)game=2;
+            }
             if (p[0].x == red.getPosition().x && p[0].y == red.getPosition().y) {
                 size += 1;
                 if (speed > 100)speed -= 20;
                 good = true;
                 while (good) {
-                    randomx = 1 + rand() % (450);
-                    randomy = 1 + rand() % (450);
+                    randomx = 1 + rand() % (550);
+                    randomy = 1 + rand() % (550);
                     for (int i = 0; i < 9; i++) {
-                        if (randomx <= (i + 1) * 50 && randomx > i * 50) randomx = (i + 1) * 50;
-                        if (randomy <= (i + 1) * 50 && randomy > i * 50) randomy = (i + 1) * 50;
+                        if (randomx <= (i + 1) * 100 && randomx > i * 100) randomx = (i + 1) * 100;
+                        if (randomy <= (i + 1) * 100 && randomy > i * 100) randomy = (i + 1) * 100;
                     }
                     for (int i = 0; i < size; i++) {
                         if (randomx == p[i].x && randomy == p[i].y) {
@@ -101,6 +137,12 @@ int main()
             
             appWindow.display();
             Sleep(speed);
+        }
+        else if (game == 2) {
+            appWindow.draw(fondo);
+            r.setPosition(200, 200);
+            appWindow.draw(r);
+            appWindow.display();
         }
        
     }
