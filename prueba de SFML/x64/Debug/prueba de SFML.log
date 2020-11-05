@@ -1,5 +1,6 @@
 ﻿  Source.cpp
-D:\Trabajos\prueba de SFML\Source.cpp(33,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-D:\Trabajos\prueba de SFML\Source.cpp(94,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Trabajos\prueba de SFML\Source.cpp(94,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  prueba de SFML.vcxproj -> D:\Trabajos\prueba de SFML\x64\Debug\prueba de SFML.exe
+D:\GitHub\ProyectoSnake\prueba de SFML\Source.cpp(33,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\GitHub\ProyectoSnake\prueba de SFML\Source.cpp(94,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\GitHub\ProyectoSnake\prueba de SFML\Source.cpp(94,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  LINK : no se encontró D:\GitHub\ProyectoSnake\prueba de SFML\x64\Debug\prueba de SFML.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  prueba de SFML.vcxproj -> D:\GitHub\ProyectoSnake\prueba de SFML\x64\Debug\prueba de SFML.exe

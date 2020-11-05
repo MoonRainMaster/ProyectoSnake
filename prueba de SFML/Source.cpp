@@ -4,7 +4,7 @@
 using namespace sf;
 
 
-int game = 1, dir=0, speed = 500, size = 1;
+int game = 1, dir=0, speed = 400, size = 1;
 int randomx = 0, randomy = 0;
 bool good = true;
 struct Point {
@@ -16,19 +16,21 @@ int main()
 {
    
 
-    RenderWindow appWindow(sf::VideoMode(500, 500), "SNAKE");
+    RenderWindow appWindow(sf::VideoMode(800, 800), "SNAKE");
     Event appEvent;
     
     Texture squaret, refresht, backgroundt;
     squaret.loadFromFile("square.png");
     refresht.loadFromFile("refresh.png");
-    backgroundt.loadFromFile("2.png");
+    backgroundt.loadFromFile("background.png");
 
     Sprite orange(squaret), refresh(refresht), red(squaret), fondo(backgroundt);
     orange.setPosition(0, 0);
     orange.setColor(Color(255, 120, 0));
+    orange.setScale(0.3f, 0.3f);
     red.setPosition(1000, 0);
     red.setColor(Color(255,0, 36));
+    red.setScale(0.3f, 0.3f);
 
     srand(time(NULL));
     randomx = 1 + rand() % (450);

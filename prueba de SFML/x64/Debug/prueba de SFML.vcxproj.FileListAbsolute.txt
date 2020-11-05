@@ -1,2 +1,4 @@
 D:\Trabajos\prueba de SFML\x64\Debug\prueba de SFML.exe
 D:\Trabajos\prueba de SFML\x64\Debug\prueba de SFML.pdb
+D:\GitHub\ProyectoSnake\prueba de SFML\x64\Debug\prueba de SFML.exe
+D:\GitHub\ProyectoSnake\prueba de SFML\x64\Debug\prueba de SFML.pdb
