@@ -1,0 +1,8 @@
+﻿  Source.cpp
+C:\Users\50233\Desktop\ProyectoSnake - copia\prueba de SFML\Source.cpp(8,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Generando código
+  0 of 158 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  prueba de SFML.vcxproj -> C:\Users\50233\Desktop\ProyectoSnake - copia\prueba de SFML\x64\Release\prueba de SFML.exe

@@ -35,7 +35,7 @@ int main()
 
     
     
-
+    //Genera la primaera mazana en una posición aleatoria
     srand(time(NULL));
     randomx = 1 + rand() % (550);
     randomy = 1 + rand() % (550);
@@ -43,7 +43,7 @@ int main()
         if (randomx <= (i + 1)* 100 && randomx > i* 100) randomx= (i + 1) * 100;
         if (randomy <= (i + 1)* 100 && randomy > i* 100) randomy = (i + 1) * 100;
     }
-
+    
     while (appWindow.isOpen()) {
         Vector2i pos = Mouse::getPosition(appWindow);
         while (appWindow.pollEvent(appEvent)) {
@@ -126,7 +126,7 @@ int main()
                     }
                 }
             }
-
+            
             red.setPosition(randomx, randomy);
             appWindow.draw(red);
 
